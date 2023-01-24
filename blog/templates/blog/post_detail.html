@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="p-5 mb-4 bg-color text-white rounded-3 shadow">
+  <h1 class="header-font">{{ post.title }}</h1>
+
+  <img
+    class="rounded-circle artical_img"
+    src="{{ object.author.profile.image.url }}"
+    alt=""
+  />
+  <span class="orenge-color">{{ object.author }}</span> on
+  <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+  <h1></h1>
+  {% if object.author == user %}
+  <a class="btn btn-secondary" href="{% url 'post-update' object.id %}">Edit</a>
+  <a class="btn btn-danger" href="{% url 'post-delete' object.id %}">Delete</a>
+  {% endif %}
+  <hr />
+  <p class="lead">{{ object.content }}</p>
+</div>
+{% endblock content %}

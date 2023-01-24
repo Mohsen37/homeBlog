@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="p-5 mb-4 bg-color text-white rounded-3 shadow">
+  <h1 class="header-font">{{ post.title }}</h1>
+
+  <img
+    class="rounded-circle artical_img"
+    src="{{ post.author.profile.image.url }}"
+    alt=""
+  />
+  <span class="orenge-color">{{ post.author }}</span> on
+  <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+
+  <hr />
+  <p class="lead">{{ post.content }}</p>
+</div>
+{% endblock content %}
